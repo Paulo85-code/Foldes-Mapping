@@ -1,0 +1,114 @@
+body {
+    background-image: url(../styles/Image/Background\ Portobello.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha o conteúdo no topo */
+    align-items: center;
+}
+
+.title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    width: 100%;
+    padding: 10px 0;
+    position: absolute;
+}
+
+h1 {
+    margin-top: 60px;
+    margin-bottom: 3px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1; /* Garante que a div ocupe o espaço restante */
+}
+
+.containerCentral {
+    position: relative;
+    width: 60vw;
+    height: 50vh;
+    overflow: hidden;
+    border-radius: 30px;
+    display: grid; /* Usando grid para organizar os ícones */
+    grid-template-columns: repeat(5, 1fr); /* 5 colunas */
+    grid-template-rows: repeat(2, 1fr); /* 2 fileiras */
+    gap: 20px; /* Espaçamento entre os ícones */
+    justify-items: center; /* Alinha os ícones ao centro */
+    align-items: center; /* Alinha os ícones ao centro */
+    margin-top: 80px;
+}
+
+.containerCentral::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../styles/Image/Background\ Portobello.jpeg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.8);
+    z-index: -1;
+}
+
+.icon {
+    width: 120px; /* Ajuste o tamanho dos ícones */
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Para que o texto possa ser posicionado sobre a imagem */
+    font-size: 18px; /* Tamanho do texto */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Efeito de transição ao passar o mouse */
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    overflow: hidden; /* Garante que o texto não saia da área da imagem */
+}
+
+.icon img {
+    width: 130%;  /* A imagem vai ocupar 100% da largura da div */
+    height: 130%; /* A imagem vai ocupar 100% da altura da div */
+    object-fit: cover; /* Faz a imagem cobrir a área da div */
+    border-radius: 10px; /* Garante que a borda da imagem fique arredondada */
+}
+
+.icon span {
+    position: absolute; /* O texto vai ser posicionado dentro da imagem */
+    top: 52%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta a posição para que o texto esteja perfeitamente no centro */
+    font-size: 15px; /* Tamanho do texto */
+    font-weight: bold; /* Deixa o texto mais forte */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Dá um efeito de sombra no texto para maior contraste */
+    text-align: center; /* Centraliza o texto dentro da imagem */
+    padding: 0 5px; /* Dá um pequeno espaço ao redor do texto */
+    max-width: 90%; /* Limita o texto para não ultrapassar a imagem */
+    white-space: nowrap; /* Impede a quebra de linha do texto */
+    overflow: hidden; /* Garante que o texto não saia da área da imagem */
+    text-overflow: ellipsis; /* Adiciona "..." caso o texto seja muito grande */
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
+}
