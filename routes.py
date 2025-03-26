@@ -47,11 +47,11 @@ def jur():
     return render_template("jur.html")
 
 #Polimento
-@app.route("/polimento")
+@app.route("/fabricas")
 def pol():
-    return render_template("pol.html")
+    return render_template("fabricas.html")
 
 #Porcelanato
-@app.route("/porcelanato")
+@app.route("/marketing")
 def porce():
-    return render_template("porce.html")
+    return render_template("mkt.html")

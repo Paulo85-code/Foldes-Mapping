@@ -87,8 +87,8 @@ h2 {
 }
 
 .icon img {
-    width: 130%;
-    height: 130%;
+    width: 140%;
+    height: 140%;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -125,5 +125,5 @@ h2 {
 }
 
 .icon a:hover {
-    transform: scale(1.1);
+    transform: scale(1.6);
 }

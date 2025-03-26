@@ -19,9 +19,9 @@ class mape(Base):
 Base.metadata.create_all(bind=db)
 
 #CRUD
-#mape = mape(setor="Manutencao", caminho= r"\\brtja20p\acessos")
-#session.add(mape)
-#session.commit()
+mape = mape(setor="TODOS", caminho= r"\\brtja20p\acessos")
+session.add(mape)
+session.commit()
 
 #READ
 #lista_setor = session.query(mape).filter_by(setor="manutencao")
