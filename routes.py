@@ -1,5 +1,41 @@
 from main import app
-from flask import render_template
+from flask import render_template, send_file
+from sqlalchemy import create_engine, Column, String, Integer
+from sqlalchemy.orm import sessionmaker, declarative_base
+
+db = create_engine("sqlite:///dados.db")
+Session = sessionmaker(bind=db)
+session = Session()
+
+Base = declarative_base()
+
+class mape(Base):
+    __tablename__ = "mape"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    setor = Column("setor", String)
+    caminho = Column("caminho", String)
+    
+    def __init__(self, setor, caminho):
+        self.setor = setor
+        self.caminho = caminho
+Base.metadata.create_all(bind=db)
+
+
+@app.route("/download_bat/<int:id>")
+def download_bat(id):
+    pasta = session.query(mape).filter_by(id=id).first()
+    
+    if not pasta:
+        return f"Não foi encontrada a pasta com ID {id}"
+    
+    bat_content = "@echo off\n"
+    bat_content += f"net use {id}: \\\\servidor\\{pasta.caminho}\n"
+
+    bat_file = f"Mapeamento_{id}.bat"
+    with open(bat_file, "w") as f:
+        f.write(bat_content)
+    
+    return send_file(bat_file, as_attachment=True, download_name=f"Mapeamento_{id}.bat")
 
 #Homepage
 @app.route("/")
