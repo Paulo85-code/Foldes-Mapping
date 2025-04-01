@@ -4,59 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapeamento de pastas</title>
-    <link rel="stylesheet" href="../static/folderstyle.css">
+    <link rel="stylesheet" href="../static/folderfabricas.css">
 </head>
 <body>
     <div class="title">
-        <h1>Pastas das Fábricas</h1>
+        <h1>Pastas PB1</h1>
         <h2>SELECIONE A PASTA DESEJADA:</h2>
     </div>
     
     <div class="container">
         <div class="containerCentral">
             <div class="icon">
-                <a href="/fabricas/PB1">
+                <a href="{{ url_for('download_bat', id=11) }}">
                 <img src="../static/Image/pasta.png">
-                <span>PB1</span>
+                <span>RH</span>
                 </a>
             </div>
             <div class="icon">
-                <a href="/fabricas/PB2">
+                <a href="{{ url_for('download_bat', id=12) }}">
                 <img src="../static/Image/pasta.png">
-                <span>PB2</span>
+                <span>ADM RH</span>
                 </a>
             </div>
             <div class="icon">
-                <a href="/fabricas/PB3">
+                <a href="{{ url_for('download_bat', id=13) }}">
                 <img src="../static/Image/pasta.png">
-                <span>PB3</span>
+                <span>Benefícios</span>
                 </a>
             </div>
             <div class="icon">
-                <a href="/fabricas/PB4">
+                <a href="{{ url_for('download_bat', id=14) }}">
                 <img src="../static/Image/pasta.png">
-                <span>PB4</span>
+                <span>Comum</span>
                 </a>
             </div>
             <div class="icon">
+                <a href="{{ url_for('download_bat', id=15) }}">
                 <img src="../static/Image/pasta.png">
-                <span>PB5</span>
+                <span>Treinamento</span>
+                </a>
             </div>
             <div class="icon">
+                <a href="{{ url_for('download_bat', id=16) }}">
                 <img src="../static/Image/pasta.png">
-                <span>PB9</span>
+                <span>Remuneração</span>
+                </a>
             </div>
             <div class="icon">
+                <a href="{{ url_for('download_bat', id=17) }}">
                 <img src="../static/Image/pasta.png">
-                <span>PB10</span>
+                <span>Gerencial</span>
+                </a>
             </div>
             <div class="icon">
+                <a href="{{ url_for('download_bat', id=18) }}">
                 <img src="../static/Image/pasta.png">
-                <span>Pasta J</span>
+                <span>Recrutamento</span>
+                </a>
             </div>
             <div class="icon">
+                <a href="{{ url_for('download_bat', id=19) }}">
                 <img src="../static/Image/pasta.png">
-                <span>GERAL</span>
+                <span>Talentos</span>
+                </a>
+            </div>
+            <div class="icon">
+                <a href="{{ url_for('download_bat', id=20) }}">
+                <img src="../static/Image/pasta.png">
+                <span>Seg.</span>
+                </a>
             </div>
         </div>
     </div>

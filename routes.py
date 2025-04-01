@@ -90,3 +90,21 @@ def pol():
 @app.route("/marketing")
 def porce():
     return render_template("mkt.html")
+
+###FÁBRICAS###
+
+@app.route("/fabricas/PB1")
+def pb1():
+    return render_template("pb1.html")
+
+@app.route("/fabricas/PB2")
+def pb1():
+    return render_template("pb2.html")
+
+@app.route("/fabricas/PB3")
+def pb1():
+    return render_template("pb3.html")
+
+@app.route("/fabricas/PB4")
+def pb1():
+    return render_template("pb4.html")
