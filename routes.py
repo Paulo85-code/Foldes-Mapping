@@ -28,8 +28,7 @@ def download_bat(id):
     if not pasta:
         return f"Não foi encontrada a pasta com ID {id}"
     
-    bat_content = "@echo off\n"
-    bat_content += f"net use {id}: \\\\servidor\\{pasta.caminho}\n"
+    bat_content = f"@echo off\ncls\nnet use J: {pasta.caminho}\ndel /f \"%~f0\"\nexit\n"
 
     bat_file = f"Mapeamento_{id}.bat"
     with open(bat_file, "w") as f:
