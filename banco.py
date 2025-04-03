@@ -18,9 +18,14 @@ class mape(Base):
         self.caminho = caminho
 Base.metadata.create_all(bind=db)
 
-#CRUD
-mape = mape(setor="TODOS", caminho= r"\\brtja20p\acessos")
-session.add(mape)
+#Adicionar
+#mape = mape(setor="PB4", caminho= r"\\brtja20p\Acessos\Pb4")
+#session.add(mape)
+#session.commit()
+
+#Deletar
+delet = session.query(mape).filter_by(id="45").first()
+session.delete(delet)
 session.commit()
 
 #READ

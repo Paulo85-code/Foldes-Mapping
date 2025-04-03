@@ -1,4 +1,5 @@
 from main import app
+import os
 from flask import render_template, send_file
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.orm import sessionmaker, declarative_base
@@ -35,6 +36,8 @@ def download_bat(id):
         f.write(bat_content)
     
     return send_file(bat_file, as_attachment=True, download_name=f"Mapeamento_{id}.bat")
+
+    
 
 #Homepage
 @app.route("/")
@@ -95,16 +98,20 @@ def porce():
 
 @app.route("/fabricas/PB1")
 def pb1():
-    return render_template("pb1.html")
+    return render_template("PB1.html")
 
 @app.route("/fabricas/PB2")
-def pb1():
-    return render_template("pb2.html")
+def pb2():
+    return render_template("PB2.html")
 
-@app.route("/fabricas/PB3")
-def pb1():
-    return render_template("pb3.html")
+@app.route("/fabricas/PB10")
+def pb10():
+    return render_template("PB10.html")
 
 @app.route("/fabricas/PB4")
-def pb1():
-    return render_template("pb4.html")
+def pb4():
+    return render_template("PB4.html")
+
+@app.route("/fabricas/PB9")
+def pb9():
+    return render_template("PB9.html")
