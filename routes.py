@@ -1,5 +1,5 @@
 from main import app
-import os
+import tempfile
 from flask import render_template, send_file
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.orm import sessionmaker, declarative_base
@@ -21,23 +21,23 @@ class mape(Base):
         self.caminho = caminho
 Base.metadata.create_all(bind=db)
 
-
+#Cria o bat para dowload
 @app.route("/download_bat/<int:id>")
 def download_bat(id):
     pasta = session.query(mape).filter_by(id=id).first()
     
     if not pasta:
         return f"Não foi encontrada a pasta com ID {id}"
-    
+
     bat_content = f"@echo off\ncls\nnet use J: {pasta.caminho}\ndel /f \"%~f0\"\nexit\n"
 
-    bat_file = f"Mapeamento_{id}.bat"
-    with open(bat_file, "w") as f:
-        f.write(bat_content)
-    
-    return send_file(bat_file, as_attachment=True, download_name=f"Mapeamento_{id}.bat")
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".bat", mode="w", encoding="utf-8")
+    tmp.write(bat_content)
+    tmp.close()
+    bat_file_path = tmp.name
 
-    
+    return send_file(bat_file_path, as_attachment=True, download_name=f"Mapeamento_{id}.bat")
+
 
 #Homepage
 @app.route("/")
